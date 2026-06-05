@@ -7,14 +7,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<#network{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-}>
+<style>
 
 *{
 margin:0;
@@ -23,84 +16,7 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
-<canvas id="network"></canvas>
 
-<script>
-const canvas = document.getElementById('network');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-vx:(Math.random()-0.5)*0.5,
-vy:(Math.random()-0.5)*0.5
-});
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-particles.forEach(p=>{
-
-p.x += p.vx;
-p.y += p.vy;
-
-if(p.x<0||p.x>canvas.width)p.vx*=-1;
-if(p.y<0||p.y>canvas.height)p.vy*=-1;
-
-ctx.beginPath();
-ctx.arc(p.x,p.y,2,0,Math.PI*2);
-ctx.fillStyle="#00d4ff";
-ctx.fill();
-
-particles.forEach(q=>{
-
-let dx=p.x-q.x;
-let dy=p.y-q.y;
-let dist=Math.sqrt(dx*dx+dy*dy);
-
-if(dist<120){
-
-ctx.beginPath();
-ctx.moveTo(p.x,p.y);
-ctx.lineTo(q.x,q.y);
-ctx.strokeStyle="rgba(0,212,255,0.08)";
-ctx.stroke();
-
-}
-
-});
-
-});
-
-requestAnimationFrame(animate);
-
-}
-
-animate();
-
-window.addEventListener('resize',()=>{
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-});
-</script>
-  #network{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-}
 body{
 background:#050816;
 color:white;
@@ -115,7 +31,7 @@ padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,.4);
+background:rgba(0,0,0,.5);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
@@ -159,7 +75,7 @@ justify-content:center;
 font-size:60px;
 font-weight:bold;
 margin-bottom:25px;
-box-shadow:0 0 50px #00d4ff;
+box-shadow:0 0 40px #00d4ff;
 }
 
 .hero h1{
@@ -201,7 +117,7 @@ text-align:center;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 }
 
@@ -215,16 +131,7 @@ transition:.3s;
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px #00d4ff50;
-}
-
-.timeline{
-max-width:900px;
-margin:auto;
-}
-
-.timeline .card{
-margin-bottom:20px;
+box-shadow:0 0 25px rgba(0,212,255,.4);
 }
 
 .contact{
@@ -242,6 +149,16 @@ text-align:center;
 border-top:1px solid rgba(255,255,255,.1);
 }
 
+details{
+margin-bottom:20px;
+}
+
+summary{
+cursor:pointer;
+font-weight:bold;
+font-size:18px;
+}
+
 @media(max-width:768px){
 
 .hero h1{
@@ -255,7 +172,6 @@ display:none;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -303,6 +219,7 @@ their security posture.
 </div>
 
 </section>
+
 <section id="skills">
 
 <h2 class="section-title">Skills</h2>
@@ -337,111 +254,165 @@ their security posture.
 
 </div>
 
-
 </section>
 <section id="experience">
 
 <h2 class="section-title">Experience</h2>
 
 <details class="card">
-<summary><b>Gatewaypark Business Pvt Ltd</b> - Cyber Security Trainee</summary>
+<summary>🏢 Gatewaypark Business Pvt Ltd - Cyber Security Trainee</summary>
 
-<ul style="margin-top:15px">
+<br>
+
+<ul>
+
 <li>Monitored and triaged 50+ security alerts daily using SOC workflows.</li>
+
 <li>Performed SIEM monitoring and log analysis.</li>
+
 <li>Investigated suspicious endpoint and network activities.</li>
+
 <li>Conducted vulnerability assessments on internal systems.</li>
+
 <li>Performed penetration testing using Nmap, Burp Suite and Metasploit.</li>
+
 <li>Prepared remediation reports and security recommendations.</li>
+
 <li>Participated in threat hunting activities.</li>
+
 <li>Documented incident response procedures and findings.</li>
-<li>Supported security operations by following escalation procedures.</li>
+
+<li>Supported security operations through escalation workflows.</li>
+
 <li>Worked with security teams to improve detection capabilities.</li>
+
 </ul>
 
 </details>
 
 <details class="card">
-<summary><b>Razz Security</b> - Cyber Security Intern</summary>
+<summary>🏢 Razz Security - Cyber Security Intern</summary>
 
-<ul style="margin-top:15px">
+<br>
+
+<ul>
+
 <li>Conducted web application vulnerability assessments.</li>
+
 <li>Identified SQL Injection vulnerabilities.</li>
+
 <li>Identified Stored and Reflected XSS vulnerabilities.</li>
+
 <li>Performed authentication and authorization testing.</li>
+
 <li>Prepared detailed vulnerability assessment reports.</li>
+
 <li>Collaborated with developers on remediation guidance.</li>
+
 <li>Performed risk assessment and validation testing.</li>
+
 <li>Documented security findings and recommendations.</li>
+
 </ul>
 
 </details>
 
 </section>
+
 <section id="projects">
 
 <h2 class="section-title">Projects</h2>
 
 <details class="card">
-<summary><b>Log Monitoring & Incident Response</b></summary>
+<summary>🛡️ Log Monitoring & Incident Response</summary>
 
-<p style="margin-top:15px">
+<br>
+
+<p>
 Designed monitoring workflows and incident response playbooks aligned with SOC best practices.
 </p>
 
+<br>
+
 <ul>
+
 <li>Created incident handling procedures.</li>
+
 <li>Developed escalation workflows.</li>
+
 <li>Documented attack scenarios.</li>
+
 <li>Performed log analysis investigations.</li>
+
 </ul>
 
 </details>
 
 <details class="card">
-<summary><b>SIEM Threat Detection Project</b></summary>
+<summary>🛡️ SIEM Threat Detection Project</summary>
 
-<p style="margin-top:15px">
-Tools Used: Splunk
-</p>
+<br>
+
+<p><b>Tools:</b> Splunk</p>
+
+<br>
 
 <ul>
+
 <li>Created detection use cases.</li>
+
 <li>Monitored brute force attacks.</li>
-<li>Investigated suspicious logins.</li>
-<li>Performed event correlation.</li>
+
+<li>Investigated suspicious login activity.</li>
+
+<li>Performed event correlation and analysis.</li>
+
 </ul>
 
 </details>
 
 <details class="card">
-<summary><b>Network Traffic Analysis</b></summary>
+<summary>🛡️ Network Traffic Analysis</summary>
 
-<p style="margin-top:15px">
-Tools Used: Wireshark
-</p>
+<br>
+
+<p><b>Tools:</b> Wireshark</p>
+
+<br>
 
 <ul>
+
 <li>Analyzed 1000+ packets.</li>
+
 <li>Identified abnormal traffic patterns.</li>
+
 <li>Investigated suspicious communications.</li>
+
 <li>Prepared security findings reports.</li>
+
 </ul>
 
 </details>
 
 <details class="card">
-<summary><b>Vulnerability Assessment & Penetration Testing</b></summary>
+<summary>🛡️ Vulnerability Assessment & Penetration Testing</summary>
 
-<p style="margin-top:15px">
-Tools Used: Nmap, Burp Suite, Metasploit
-</p>
+<br>
+
+<p><b>Tools:</b> Nmap, Burp Suite, Metasploit</p>
+
+<br>
 
 <ul>
-<li>Reconnaissance and scanning.</li>
-<li>Enumeration activities.</li>
-<li>Vulnerability validation.</li>
-<li>Remediation recommendations.</li>
+
+<li>Performed reconnaissance and scanning.</li>
+
+<li>Conducted enumeration activities.</li>
+
+<li>Validated identified vulnerabilities.</li>
+
+<li>Prepared remediation recommendations.</li>
+
 </ul>
 
 </details>
@@ -452,23 +423,28 @@ Tools Used: Nmap, Burp Suite, Metasploit
 
 <h2 class="section-title">Contact</h2>
 
-<p>Email: <a href="mailto:tarunmk03@gmail.com">tarunmk03@gmail.com</a></p>
-
-<br>
-
 <p>
-GitHub:
-<a href="https://github.com/tarunmk03">
-github.com/tarunmk03
+📧
+<a href="mailto:tarunmk03@gmail.com">
+tarunmk03@gmail.com
 </a>
 </p>
 
 <br>
 
 <p>
-LinkedIn:
-<a href="https://linkedin.com/in/tarun-mk-03">
-linkedin.com/in/tarun-mk-03
+💻
+<a href="https://github.com/tarunmk03" target="_blank">
+GitHub Profile
+</a>
+</p>
+
+<br>
+
+<p>
+🔗
+<a href="https://linkedin.com/in/tarun-mk-03" target="_blank">
+LinkedIn Profile
 </a>
 </p>
 
@@ -476,7 +452,9 @@ linkedin.com/in/tarun-mk-03
 
 <footer>
 
+<p>
 © 2026 Tarun M | Cyber Security Analyst
+</p>
 
 </footer>
 
