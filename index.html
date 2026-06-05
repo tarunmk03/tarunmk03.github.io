@@ -1,11 +1,315 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tarun M | Cyber Security Analyst</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarun M | Cyber Security Analyst</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#00d4ff;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:radial-gradient(circle at center,#0f172a,#050816);
+}
+
+.avatar{
+width:160px;
+height:160px;
+border-radius:50%;
+background:#00d4ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
+font-weight:bold;
+margin-bottom:25px;
+box-shadow:0 0 50px #00d4ff;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero h2{
+color:#00d4ff;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+line-height:1.8;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 28px;
+background:#00d4ff;
+color:black;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:40px;
+margin-bottom:40px;
+color:#00d4ff;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #00d4ff50;
+}
+
+.timeline{
+max-width:900px;
+margin:auto;
+}
+
+.timeline .card{
+margin-bottom:20px;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:#00d4ff;
+text-decoration:none;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-    <h1>Tarun M</h1>
-    <h2>SOC Analyst | Cyber Security Analyst</h2>
-    <p>Website under construction...</p>
+
+<nav>
+<div class="logo">TM</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<div class="avatar">TM</div>
+
+<h1>Tarun M</h1>
+
+<h2>SOC Analyst | Cyber Security Analyst</h2>
+
+<p>
+Passionate Cyber Security Analyst with hands-on experience in SIEM Monitoring,
+Incident Response, Threat Hunting, Vulnerability Assessment and Penetration Testing.
+</p>
+
+<a class="btn" href="mailto:tarunmk03@gmail.com">Contact Me</a>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="card">
+
+I am a Cyber Security Analyst focused on SOC operations, SIEM monitoring,
+threat detection, incident response and vulnerability assessment.
+I enjoy identifying threats, analyzing logs and helping organizations improve
+their security posture.
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="grid">
+
+<div class="card">Splunk</div>
+<div class="card">SIEM Monitoring</div>
+<div class="card">Incident Response</div>
+<div class="card">Threat Hunting</div>
+<div class="card">Nmap</div>
+<div class="card">Wireshark</div>
+<div class="card">Linux</div>
+<div class="card">Burp Suite</div>
+<div class="card">VAPT</div>
+<div class="card">MITRE ATT&CK</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 class="section-title">Experience</h2>
+
+<div class="timeline">
+
+<div class="card">
+<h3>Cyber Security Trainee</h3>
+<p>Gatewaypark Business Pvt Ltd</p>
+</div>
+
+<div class="card">
+<h3>Cyber Security Intern</h3>
+<p>Razz Security</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="grid">
+
+<div class="card">Log Monitoring & Incident Response</div>
+
+<div class="card">SIEM Workflow & Threat Detection</div>
+
+<div class="card">Network Security Analysis</div>
+
+<div class="card">Vulnerability Assessment Lab</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<p>Email: <a href="mailto:tarunmk03@gmail.com">tarunmk03@gmail.com</a></p>
+
+<br>
+
+<p>
+GitHub:
+<a href="https://github.com/tarunmk03">
+github.com/tarunmk03
+</a>
+</p>
+
+<br>
+
+<p>
+LinkedIn:
+<a href="https://linkedin.com/in/tarun-mk-03">
+linkedin.com/in/tarun-mk-03
+</a>
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Tarun M | Cyber Security Analyst
+
+</footer>
+
 </body>
 </html>
