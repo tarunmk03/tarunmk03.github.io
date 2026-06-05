@@ -16,13 +16,109 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
+<script>
 
+const roles = [
+"SOC Analyst",
+"Cyber Security Analyst",
+"Threat Hunter",
+"Incident Responder",
+"SIEM Monitoring Specialist"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+
+function typeEffect(){
+
+let currentRole = roles[roleIndex];
+
+document.getElementById("typing").textContent =
+currentRole.substring(0,charIndex);
+
+charIndex++;
+
+if(charIndex > currentRole.length){
+
+setTimeout(() => {
+
+charIndex = 0;
+roleIndex++;
+
+if(roleIndex >= roles.length){
+roleIndex = 0;
+}
+
+},1500);
+
+}
+
+setTimeout(typeEffect,120);
+
+}
+
+typeEffect();
+
+</script>
 body{
 background:#050816;
 color:white;
 overflow-x:hidden;
 }
 
+  #typing{
+color:#00d4ff;
+font-size:32px;
+font-weight:600;
+height:40px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:50px;
+}
+
+.stat-card{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+text-align:center;
+border:1px solid rgba(255,255,255,.1);
+transition:.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,212,255,.4);
+}
+
+.stat-number{
+font-size:40px;
+font-weight:bold;
+color:#00d4ff;
+}
+
+.cert-card{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+text-align:center;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.resume-btn{
+display:inline-block;
+margin-top:20px;
+padding:15px 30px;
+background:#00d4ff;
+color:black;
+font-weight:bold;
+text-decoration:none;
+border-radius:30px;
+}
+  
 nav{
 position:fixed;
 width:100%;
@@ -194,7 +290,7 @@ display:none;
 
 <h1>Tarun M</h1>
 
-<h2>SOC Analyst | Cyber Security Analyst</h2>
+<h2 id="typing"></h2>
 
 <p>
 Passionate Cyber Security Analyst with hands-on experience in SIEM Monitoring,
@@ -215,6 +311,36 @@ I am a Cyber Security Analyst focused on SOC operations, SIEM monitoring,
 threat detection, incident response and vulnerability assessment.
 I enjoy identifying threats, analyzing logs and helping organizations improve
 their security posture.
+
+</div>
+
+</section>
+
+  <section>
+
+<h2 class="section-title">SOC Dashboard</h2>
+
+<div class="stats">
+
+<div class="stat-card">
+<div class="stat-number">50+</div>
+<p>Alerts Triaged Daily</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">15+</div>
+<p>Security Events Investigated</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">10+</div>
+<p>Projects & Labs</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">2</div>
+<p>Certifications</p>
+</div>
 
 </div>
 
@@ -418,11 +544,32 @@ Designed monitoring workflows and incident response playbooks aligned with SOC b
 </details>
 
 </section>
+<section id="certifications">
 
+<h2 class="section-title">Certifications</h2>
+
+<div class="grid">
+
+<div class="cert-card">
+<h3>CEH</h3>
+<p>Certified Ethical Hacker</p>
+</div>
+
+<div class="cert-card">
+<h3>CSEH</h3>
+<p>Cyber Security & Ethical Hacking</p>
+</div>
+
+</div>
+
+</section>
+  
 <section id="contact" class="contact">
 
 <h2 class="section-title">Contact</h2>
-
+<a href="#" class="resume-btn">
+Download Resume
+</a>
 <p>
 📧
 <a href="mailto:tarunmk03@gmail.com">
