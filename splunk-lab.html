@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splunk Home SOC Lab | Tarun M</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#050505;color:#fff}
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,255,136,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(0,255,136,.04) 1px,transparent 1px);
+background-size:40px 40px;
+z-index:-1
+}
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 8%;
+background:#0f0f0f;
+border-bottom:1px solid #00ff88;
+z-index:999
+}
+.title{color:#00ff88}
+.section{padding:100px 8% 50px}
+.card{
+background:rgba(20,20,20,.95);
+border:1px solid #00ff88;
+padding:25px;
+border-radius:16px;
+margin:20px 0
+}
+.btn{
+display:inline-block;
+background:#00ff88;
+color:#000;
+padding:12px 20px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+margin-top:15px
+}
+.project-img{
+max-width:850px;
+width:100%;
+display:block;
+margin:20px auto;
+border-radius:12px;
+border:1px solid #00ff88;
+}
+h1,h2,h3{
+color:#00ff88;
+margin-bottom:10px;
+}
+p,li{
+line-height:1.8;
+}
+code{
+color:#00ff88;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<span class="title">SPLUNK HOME SOC LAB</span>
+</nav>
+
+<section class="section">
+
+<div class="card">
+
+<h1>Splunk Home SOC Lab</h1>
+
+<p>
+Built a Home SOC Lab using Splunk Enterprise to simulate real-world Security Operations Center (SOC) monitoring and detection workflows.
+The lab focuses on Windows Security Event monitoring, authentication analysis, SPL query development and threat detection.
+</p>
+
+<a class="btn" href="index.html">⬅ Back to Portfolio</a>
+
+</div>
+
+<div class="card">
+
+<h2>How I Built It</h2>
+
+<ul>
+<li>Installed Splunk Enterprise on a Windows system.</li>
+<li>Collected Windows Security, System and Application logs.</li>
+<li>Verified log ingestion and field extraction.</li>
+<li>Generated successful and failed authentication events.</li>
+<li>Created SPL queries for authentication monitoring.</li>
+<li>Developed brute-force detection logic using failed login events.</li>
+<li>Performed log analysis and security investigations.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Technologies Used</h2>
+
+<p>
+Splunk Enterprise • Windows Event Logs • SPL (Search Processing Language)
+• Authentication Monitoring • Threat Detection • Security Monitoring
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>01. Log Ingestion Overview</h3>
+
+<p>
+Splunk Enterprise successfully ingesting Windows Security,
+System and Application event logs for centralized monitoring.
+</p>
+
+<img src="01_Log_Ingestion_Overview.png" class="project-img">
+
+</div>
+
+<div class="card">
+
+<h3>02. Windows Security Log Collection</h3>
+
+<p>
+Verification of Windows Security Event collection and field extraction within Splunk.
+</p>
+
+<img src="02_Windows_Security_Log_Collection.png" class="project-img">
+
+</div>
+
+<div class="card">
+
+<h3>03. Successful Login Monitoring (Event ID 4624)</h3>
+
+<p>
+Authentication monitoring using Windows Event ID 4624 to analyze successful login activity.
+</p>
+
+<img src="03_Successful_Login_Monitoring_4624.png" class="project-img">
+
+</div>
+
+<div class="card">
+
+<h3>04. Failed Login Monitoring (Event ID 4625)</h3>
+
+<p>
+Detection and investigation of failed authentication attempts using Windows Security Event ID 4625.
+</p>
+
+<img src="04_Failed_Login_Monitoring_4625.png" class="project-img">
+
+</div>
+
+<div class="card">
+
+<h3>05. Brute Force Detection Use Case</h3>
+
+<p>
+Developed an SPL-based brute-force detection use case identifying multiple failed login attempts within a five-minute period.
+</p>
+
+<img src="05_Brute_Force_Detection_Use_Case.png" class="project-img">
+
+</div>
+
+<div class="card">
+
+<h2>Key SPL Queries</h2>
+
+<p><b>Successful Login Monitoring</b></p>
+
+<code>
+index=* sourcetype=WinEventLog:Security EventCode=4624
+| stats count by Account_Name
+</code>
+
+<br><br>
+
+<p><b>Failed Login Monitoring</b></p>
+
+<code>
+index=* sourcetype=WinEventLog:Security EventCode=4625
+| stats count by Account_Name
+</code>
+
+<br><br>
+
+<p><b>Brute Force Detection</b></p>
+
+<code>
+index=* sourcetype=WinEventLog:Security EventCode=4625
+| bucket _time span=5m
+| stats count by _time Account_Name
+| where count >= 5
+</code>
+
+</div>
+
+<div class="card">
+
+<h2>Skills Demonstrated</h2>
+
+<p>
+SIEM Monitoring • Splunk Enterprise • Log Analysis • Threat Detection
+• Authentication Monitoring • Security Monitoring • Incident Investigation
+• SPL Query Development • SOC Operations
+</p>
+
+</div>
+
+</section>
+
+</body>
+</html>
